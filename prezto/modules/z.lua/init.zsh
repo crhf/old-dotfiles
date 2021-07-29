@@ -1,0 +1,1 @@
+eval "$(lua5.3 ${0:h}/z.lua/z.lua --init zsh enhanced once echo)"
