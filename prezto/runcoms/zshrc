@@ -11,3 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+for script in "${ZDOTDIR:-$HOME}/.zprezto/general"/*; do
+	source $script
+done
