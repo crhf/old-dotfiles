@@ -121,6 +121,8 @@ set softtabstop=4
 set shiftwidth=4
 set ruler
 
+" 关闭括号匹配时光标的跳动
+set noshowmatch
 "===========================
 "查找/替换相关的设置
 "===========================
