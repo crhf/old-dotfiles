@@ -13,3 +13,8 @@ alias ssh='ssh -o ServerAliveInterval=60'
 
 # clear
 alias c='clear'
+
+# git
+alias ga='git add -A'
+alias gc='git commit -m'
+alias gp='git push'
