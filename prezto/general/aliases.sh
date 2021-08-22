@@ -10,3 +10,6 @@ alias zb='z -b'      # quickly cd to the parent directory
 
 # ssh
 alias ssh='ssh -o ServerAliveInterval=60'
+
+# clear
+alias c='clear'
