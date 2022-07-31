@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # `cd` into the prezto root directory and call `zsh setup.sh`
 
 setopt EXTENDED_GLOB
