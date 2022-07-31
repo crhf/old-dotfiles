@@ -1,1 +1,0 @@
-setopt noEXTENDED_GLOB
