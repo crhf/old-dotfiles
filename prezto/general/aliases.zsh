@@ -1,0 +1,5 @@
+alias gl='git --no-pager log --oneline -5'
+alias gs='git status'
+alias gb='git branch'
+alias gc='git commit -m'
+alias ga='git add'
