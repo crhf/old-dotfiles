@@ -70,6 +70,7 @@ set noswapfile
 set nowritebackup
 
 set nu          " 显示行号
+set relativenumber
 set history=500     " 保留历史记录
 set backspace=2     " 退格键可用
 "===========================
