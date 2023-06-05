@@ -90,4 +90,9 @@ use({
 --     end
 -- })
 use 'voldikss/vim-floaterm'
+use({
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  after = "nvim-treesitter",
+  requires = "nvim-treesitter/nvim-treesitter",
+})
 end)
