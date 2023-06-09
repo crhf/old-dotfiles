@@ -59,6 +59,8 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    use'ray-x/lsp_signature.nvim'
+
 	use({
 		"Pocco81/auto-save.nvim",
 		config = function()
