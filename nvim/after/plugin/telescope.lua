@@ -5,7 +5,11 @@ require("telescope").setup {
                 i = {
                     ["<C-l>"] = "close",
                     ["<Esc>"] = false,
-                    ["<C-c>"] = false
+                    ["<C-c>"] = false,
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["<C-p>"] = false,
+                    ["<C-n>"] = false,
                 },
             },
         },
@@ -14,7 +18,11 @@ require("telescope").setup {
                 i = {
                     ["<C-l>"] = "close",
                     ["<Esc>"] = false,
-                    ["<C-c>"] = false
+                    ["<C-c>"] = false,
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["<C-p>"] = false,
+                    ["<C-n>"] = false,
                 }
             }
         }
