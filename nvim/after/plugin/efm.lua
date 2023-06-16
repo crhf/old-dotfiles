@@ -13,6 +13,9 @@ require "lspconfig".efm.setup {
             json = {
                 { formatCommand = "underscore print", formatStdin = true }
             },
+            sh = {
+                { formatCommand = "shfmt", formatStdin = false }
+            },
         }
     }
 }
