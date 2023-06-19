@@ -1,11 +1,19 @@
 require('gitsigns').setup {
   signs = {
-    add          = { text = '│' },
-    change       = { text = '│' },
+    add          = { text = '+' },
+    change       = { text = '~' },
     delete       = { text = '_' },
     topdelete    = { text = '‾' },
     changedelete = { text = '~' },
     untracked    = { text = '┆' },
+  },
+  _signs_staged = {
+    add          = { text = '✓' },
+    change       = { text = '✓' },
+    delete       = { text = '✓' },
+    topdelete    = { text = '✓' },
+    changedelete = { text = '✓' },
+    untracked    = { text = '✓' },
   },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
   numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -39,4 +47,33 @@ require('gitsigns').setup {
   yadm = {
     enable = false
   },
+  debug_mode = true, -- You must add this to enable debug messages
+  _signs_staged_enable = true,
+  on_attach = function(bufnr)
+      local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']h', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[h', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '<leader>gp', gs.preview_hunk)
+    map('n', '<leader>ga', gs.stage_hunk)
+    map('n', '<leader>gu', gs.undo_stage_hunk)
+    map('n', '<leader>gr', gs.reset_hunk)
+  end
 }
