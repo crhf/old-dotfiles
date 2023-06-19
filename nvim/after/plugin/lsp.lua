@@ -1,5 +1,14 @@
 local lsp = require('lsp-zero').preset({})
 
+local nmap = function(keys, func, desc)
+    if desc then
+        desc = 'LSP: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+end
+
+
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
     -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
@@ -12,6 +21,10 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>im", vim.lsp.buf.implementation)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
     vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
+
+    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 end)
 
 -- (Optional) Configure lua language server for neovim
