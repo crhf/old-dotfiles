@@ -10,6 +10,21 @@ end
 
 
 lsp.on_attach(function(client, bufnr)
+    -- local rc = client.resolved_capabilities
+    -- if client.name == 'pylsp' then
+        -- rc.rename = false
+        -- rc.completion = false
+        -- rc.format = false
+    -- end
+
+    -- if client.name == 'pyright' then
+        -- rc.hover = false
+        -- rc.definition = false
+        -- rc.signature_help = false
+        -- rc.format = false
+        -- rc.completion = false
+    -- end
+
     lsp.default_keymaps({ buffer = bufnr })
     -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
     vim.keymap.set("n", "<leader>ff", function()
