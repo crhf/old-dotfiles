@@ -150,4 +150,8 @@ return require('packer').startup(function(use)
         setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
         ft = { "markdown" },
     })
+
+    use("petertriho/nvim-scrollbar")
+
+    use("kevinhwang91/nvim-hlslens")
 end)
