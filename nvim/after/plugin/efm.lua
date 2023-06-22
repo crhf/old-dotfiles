@@ -16,6 +16,10 @@ require "lspconfig".efm.setup {
             sh = {
                 { formatCommand = "shfmt", formatStdin = false }
             },
+            yaml = {
+                -- { formatCommand = "yamlfmt", formatStdin = false }
+                { formatCommand = "npx prettier --parser yaml", formatStdin = true }
+            },
         }
     }
 }
