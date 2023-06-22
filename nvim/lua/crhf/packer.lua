@@ -151,4 +151,10 @@ return require('packer').startup(function(use)
     use("petertriho/nvim-scrollbar")
 
     use("kevinhwang91/nvim-hlslens")
+
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'JRasmusBm/telescope-dap.nvim'
 end)
