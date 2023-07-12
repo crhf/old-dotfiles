@@ -157,6 +157,18 @@ return require('packer').startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'theHamsta/nvim-dap-virtual-text'
     use 'JRasmusBm/telescope-dap.nvim'
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim"
+        }
+    }
+    use "nvim-neotest/neotest-python"
+
+    use 'folke/neodev.nvim'
+
     use({
         "andythigpen/nvim-coverage",
         requires = "nvim-lua/plenary.nvim",
