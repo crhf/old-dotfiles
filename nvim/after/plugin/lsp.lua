@@ -1,28 +1,27 @@
 local lsp = require('lsp-zero').preset({})
 
-local nmap = function(keys, func, desc)
-    if desc then
-        desc = 'LSP: ' .. desc
-    end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-end
-
-
 lsp.on_attach(function(client, bufnr)
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    end
     -- local rc = client.resolved_capabilities
     -- if client.name == 'pylsp' then
-        -- rc.rename = false
-        -- rc.completion = false
-        -- rc.format = false
+    -- rc.rename = false
+    -- rc.completion = false
+    -- rc.format = false
     -- end
 
     -- if client.name == 'pyright' then
-        -- rc.hover = false
-        -- rc.definition = false
-        -- rc.signature_help = false
-        -- rc.format = false
-        -- rc.completion = false
+    -- rc.hover = false
+    -- rc.definition = false
+    -- rc.signature_help = false
+    -- rc.format = false
+    -- rc.completion = false
+        -- rc.references = false
     -- end
 
     lsp.default_keymaps({ buffer = bufnr })
@@ -30,12 +29,14 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>ff", function()
         vim.lsp.buf.format { async = true }
     end)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
     vim.keymap.set("n", "<leader>rf", vim.lsp.buf.references)
     vim.keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
     vim.keymap.set("n", "<leader>im", vim.lsp.buf.implementation)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
+    vim.keymap.set("n", "<leader>ac", vim.lsp.buf.code_action)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
@@ -44,6 +45,13 @@ end)
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+-- require('lspconfig').pyright.setup({
+--     on_init = function(client)
+--         client.server_capabilities.references = nil
+--     end,
+-- })
+-- lsp.skip_server_setup({'pyright'})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
