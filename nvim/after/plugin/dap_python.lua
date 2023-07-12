@@ -23,4 +23,22 @@ table.insert(require('dap').configurations.python, {
     name = 'Launch module',
     module = get_module_path,
     -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+    console = 'integratedTerminal',
+    pythonPath = nil,
+    redirectOutput = true
+})
+
+table.insert(require('dap').configurations.python, {
+    type = 'python',
+    request = 'launch',
+    name = 'Launch module with arguments',
+    module = get_module_path,
+    -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+    args = function()
+        local args_string = vim.fn.input('Arguments: ')
+        return vim.split(args_string, " +")
+    end,
+    console = 'integratedTerminal',
+    pythonPath = nil,
+    redirectOutput = true
 })
