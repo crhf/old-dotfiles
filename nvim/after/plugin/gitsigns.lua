@@ -75,5 +75,6 @@ require('gitsigns').setup {
         map('n', '<leader>ga', gs.stage_hunk)
         map('n', '<leader>gu', gs.undo_stage_hunk)
         map('n', '<leader>gr', gs.reset_hunk)
+        map('n', '<leader>gs', gs.refresh)
     end
 }
