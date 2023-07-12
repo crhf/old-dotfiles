@@ -157,5 +157,15 @@ return require('packer').startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'theHamsta/nvim-dap-virtual-text'
     use 'JRasmusBm/telescope-dap.nvim'
+    use({
+        "andythigpen/nvim-coverage",
+        requires = "nvim-lua/plenary.nvim",
+        -- Optional: needed for PHP when using the cobertura parser
+        -- rocks = { 'lua-xmlreader' },
+        config = function()
+            require("coverage").setup()
+        end,
+    })
+
     use 'crhf/symbols-outline.nvim'
 end)
