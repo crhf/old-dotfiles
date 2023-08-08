@@ -194,4 +194,6 @@ return require('packer').startup(function(use)
     })
 
     use 'crhf/symbols-outline.nvim'
+
+    use "m4xshen/hardtime.nvim"
 end)
