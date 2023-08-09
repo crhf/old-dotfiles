@@ -46,6 +46,20 @@ end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+require('lspconfig').pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+                autoImportCompletions = false,
+            },
+        },
+        linting = { pylintEnabled = false }
+    },
+})
+
 -- require('lspconfig').pyright.setup({
 --     on_init = function(client)
 --         client.server_capabilities.references = nil
