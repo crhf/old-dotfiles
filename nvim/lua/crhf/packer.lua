@@ -128,8 +128,6 @@ return require('packer').startup(function(use)
         -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
 
-    use 'romgrk/barbar.nvim'
-
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
@@ -196,4 +194,22 @@ return require('packer').startup(function(use)
     use 'crhf/symbols-outline.nvim'
 
     use "m4xshen/hardtime.nvim"
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    use({
+        "utilyre/barbecue.nvim",
+        tag = "*",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        after = "nvim-web-devicons",       -- keep this if you're using NvChad
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
 end)
