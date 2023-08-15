@@ -42,3 +42,5 @@ table.insert(require('dap').configurations.python, {
     pythonPath = nil,
     redirectOutput = true
 })
+
+require('dap.ext.vscode').load_launchjs()
