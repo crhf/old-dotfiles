@@ -239,4 +239,6 @@ return require('packer').startup(function(use)
             require("barbecue").setup()
         end,
     })
+
+    use "lukas-reineke/indent-blankline.nvim"
 end)
