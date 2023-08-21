@@ -11,7 +11,6 @@ autoload -Uz compinit
 compinit
 
 plug $ZDOTDIR/exports.zsh
-plug $ZDOTDIR/aliases.zsh
 
 bindkey -v
 bindkey -r "^L"
@@ -23,3 +22,5 @@ eval "$(starship init zsh)"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+plug $ZDOTDIR/aliases.zsh

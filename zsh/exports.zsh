@@ -46,3 +46,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export PATH=$PATH:/home/crhf/.erg/bin
 export ERG_PATH=/home/crhf/.erg
+
+export TERM='xterm-256color'
