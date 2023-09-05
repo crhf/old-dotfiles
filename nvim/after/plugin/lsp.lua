@@ -92,6 +92,8 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 -- })
 -- lsp.skip_server_setup({'pyright'})
 
+lsp.skip_server_setup({ 'jdtls' })
+
 lsp.setup() -- after specific lang servers, before cmp
 
 local cmp = require('cmp')

@@ -197,6 +197,8 @@ return require('packer').startup(function(use)
         end,
     })
 
+    use 'mfussenegger/nvim-jdtls'
+
     use 'crhf/symbols-outline.nvim'
 
     use "m4xshen/hardtime.nvim"
